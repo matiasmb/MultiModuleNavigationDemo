@@ -16,6 +16,9 @@ class DefinePasswordFragment : Fragment(R.layout.fragment_define_password) {
             findViewById<Button>(R.id.btnHome).setOnClickListener {
                 findNavController().popBackStack(R.id.homeFragment, false)
             }
+            findViewById<Button>(R.id.btnHomeTwo).setOnClickListener {
+                findNavController().navigate(R.id.action_go_home_again)
+            }
         }
     }
 }

@@ -22,5 +22,8 @@
         <deepLink
             android:id="@+id/deepLink"
             app:uri="ngvl://passwordupdate" />
+        <action
+            android:id="@+id/action_go_home_again"
+            app:destination="@id/onboarding_nav_graph" />
     </fragment>
 </navigation>
