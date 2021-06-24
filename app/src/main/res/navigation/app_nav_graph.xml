@@ -1,17 +1,18 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav_graph"
-    app:startDestination="@id/onboarding_nav_graph">
+    app:startDestination="@id/bottom_navigation_fragment">
 
     <include app:graph="@navigation/onboarding_nav_graph" />
 
     <include app:graph="@navigation/profile_nav_graph" />
 
-    <!--    <action-->
-    <!--        android:id="@+id/action_global_onboarding"-->
-    <!--        app:destination="@id/onboarding_nav_graph"-->
-    <!--        app:enterAnim="@anim/nav_default_enter_anim"-->
-    <!--        app:exitAnim="@anim/nav_default_exit_anim" />-->
+    <fragment
+        android:id="@+id/bottom_navigation_fragment"
+        android:name="br.com.nglauber.multimodulenavdemo.BottomNavigationFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/bottom_navigation_fragment" />
 
     <!--    <action-->
     <!--        android:id="@+id/action_global_profile"-->

@@ -2,14 +2,13 @@ package br.com.nglauber.multimodulenavdemo
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import br.com.nglauber.feature_onboarding.WelcomeFragment
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem
-import java.lang.IndexOutOfBoundsException
 
 class BottomNavigationFragment : Fragment(R.layout.bottom_navigation_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -19,36 +18,31 @@ class BottomNavigationFragment : Fragment(R.layout.bottom_navigation_fragment) {
 
         botNav.addItem(getHomeBottomNavigationItem())
         botNav.addItem(getSecondHomeBottomNavigationItem())
+        botNav.isBehaviorTranslationEnabled = false
 
-        botNav.setOnTabSelectedListener { position, _ ->
-            when(position) {
-                0 -> {
-//                    findNavController()
-//                        .navigate(
-//                            br.com.nglauber.feature_onboarding.R.id.action_profile,
-//                            bundleOf("user" to br.com.nglauber.common.User(1, "Nelson"))
-//                        )
-                }
-
-
-                1 -> {
-//                    findNavController().navigate(NavigationLinks.LINK_PASSWORD_CHANGE)
-                }
-
-                else -> throw IndexOutOfBoundsException()
-
+        botNav.setOnTabSelectedListener { position, wasSelected ->
+            when (position) {
+                0 -> showFragment()
+                1 -> showFragment()
             }
             false
         }
     }
 
-    fun getHomeBottomNavigationItem() =
+    private fun showFragment() {
+        parentFragmentManager.commit{
+            setReorderingAllowed(true)
+            add<WelcomeFragment>(R.id.nav_host_container)
+        }
+    }
+
+    private fun getHomeBottomNavigationItem() =
         AHBottomNavigationItem(
             "Profile",
             ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_agenda),
             ContextCompat.getColor(requireContext(), br.com.nglauber.feature_onboarding.R.color.colorBottomNavigationPrimary))
 
-    fun getSecondHomeBottomNavigationItem() =
+    private fun getSecondHomeBottomNavigationItem() =
         AHBottomNavigationItem(
             "Password",
             ContextCompat.getDrawable(requireContext(), android.R.drawable.ic_menu_help),
