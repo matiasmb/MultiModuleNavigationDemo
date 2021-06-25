@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MultiModuleNavDemo</string>
+    <string name="cd_home">this home</string>
+    <string name="home">home</string>
+    <string name="cd_profile">this profile</string>
+    <string name="profile">profile</string>
 </resources>
