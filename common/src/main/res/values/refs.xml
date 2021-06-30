@@ -2,5 +2,6 @@
 <resources>
     <item name="profile_nav_graph" type="id" />
     <item name="homeFragment" type="id" />
+    <item name="welcomeFragment" type="id" />
     <item name="onboarding_nav_graph" type="id" />
 </resources>

@@ -11,7 +11,6 @@
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome">
         <action
-
             android:id="@+id/action_welcomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
@@ -20,6 +19,9 @@
         android:name="br.com.nglauber.feature_onboarding.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home">
+        <deepLink
+            android:id="@+id/deepLinkHome"
+            app:uri="ngvl://home/" />
         <action
             android:id="@+id/action_profile"
             app:destination="@id/profile_nav_graph" />

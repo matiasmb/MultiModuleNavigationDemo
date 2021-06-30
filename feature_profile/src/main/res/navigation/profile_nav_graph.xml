@@ -20,8 +20,8 @@
         android:label="fragment_define_password"
         tools:layout="@layout/fragment_define_password">
         <deepLink
-            android:id="@+id/deepLink"
-            app:uri="ngvl://passwordupdate" />
+            android:id="@+id/deepLink2"
+            app:uri="ngvl://passwordupdate/?product={String}"/>
         <action
             android:id="@+id/action_go_home_again"
             app:destination="@id/onboarding_nav_graph" />
