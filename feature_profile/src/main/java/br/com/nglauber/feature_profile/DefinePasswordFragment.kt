@@ -27,9 +27,11 @@ class DefinePasswordFragment : Fragment(R.layout.fragment_define_password), IOnB
 
     override fun onBackPressed(): Boolean {
         requireActivity().intent.data?.let {
-            findNavController().popBackStack()
             if (it.getQueryParameter("product")?.isNotEmpty() == true) {
+                findNavController().popBackStack(R.id.welcomeFragment, false)
                 findNavController().navigate(NavigationLinks.LINK_ONBOARDING_HOME)
+            } else {
+                findNavController().popBackStack()
             }
             return false
         } ?: run {
